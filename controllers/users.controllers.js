@@ -32,7 +32,7 @@ const signup = (req,res)=>{
             if(!user){res.send({status:false, message:"invalid login credentials"})}
             else{ console.log(user);
                 let secret = process.env.SECRET
-                let token = jwt.sign({email}, secret, {expiresIn:900} ); console.log(token)
+                let token = jwt.sign({email}, secret, {expiresIn:10000} ); console.log(token)
                     //let mapeduser = user.map(i=>(i.name, i.accountnumber, i.phonenumber, i.email))
                 res.send({status:true, token, message:"signin successful", user})
             }
