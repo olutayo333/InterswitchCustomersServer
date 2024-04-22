@@ -27,7 +27,7 @@ const signup = (req,res)=>{
         let signinEmail
     const signin = (req, res) =>{ console.log(req.body);
         let {email,password} = req.body; signinEmail = req.body.email; signinPassword=req.body.password; 
-        userModel.findOne({email:signinEmail} )
+        userModel.findOne({email:signinEmail} && {password:password} )
         .then((user)=>{
             if(!user){res.send({status:false, message:"invalid login credentials"})}
             else{ console.log(user);
