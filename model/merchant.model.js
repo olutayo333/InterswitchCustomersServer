@@ -1,12 +1,13 @@
 const mongoose = require("mongoose") 
 const bcryptjs = require("bcryptjs"); const bcrypt = require("bcryptjs/dist/bcrypt");
 
-let customersSchema= mongoose.Schema({
-    name:{type: String, required:true },
-    phonenumber:{type: String, required:true, unique:true },
+let merchantSchema= mongoose.Schema({
+    firstname:{type: String, required:true },
+    lastname:{type: String, required:true },
     email:{type: String, required:true, unique:true},
-    physicaladdress:{type:String, required:true },
     password:{type:String, required:true },
+    bussinessname:{type:String, required:true },
+    merchantCode:{type:String, required:true, }, 
     registrationDate:{type:Date, default:Date.now()},
 }) 
 
@@ -31,5 +32,5 @@ let customersSchema= mongoose.Schema({
 //         else{next()}
 //     })
 // }
-let CustomersModel = mongoose.model("CustomersDetails", customersSchema)
-module.exports = CustomersModel
+let MerchantsModel = mongoose.model("MerchantsDetails", merchantSchema)
+module.exports = MerchantsModel
